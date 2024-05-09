@@ -1,32 +1,17 @@
 import React from "react";
 
 function App(props) {
-  // object : {}
-  // {} 안에 property명 : property값 쌍들이 작성됨
-  let a = {};
-  let b = { name: "흥민" };
-  let c = { address: "신촌", city: "서울", country: "한국" };
+  const a = {
+    name: "흥민",
+    team: "토트넘",
+    salary: 500,
+  };
 
-  console.log("a", a);
-  console.log("b", b);
-  console.log("c", c);
-  console.log("c", c.city);
-
-  console.log("b의 name", b.name); // b의 name 흥민
-  console.log("b의 name", b["name"]); // 흥민
-  console.log("c의 address", c.address);
-
-  b.name = "강인";
-  console.log("b의 name", b.name); // 강인
-
-  // 없는 프로퍼티에도 접근 가능
-  console.log("b의 city", b.city); //undefined
-  b.city = "부산"; // city 프로퍼티 추가
-  b.address = "강남"; // address 프로퍼티 추가
-
-  console.log("b", b);
-
-  return <div></div>;
+  return (
+    <div>
+      {a.name}은 {a.team} 소속이고 연봉은 {a.salary}억원 이다.
+    </div>
+  );
 }
 
 export default App;
