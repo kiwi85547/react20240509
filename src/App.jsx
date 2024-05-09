@@ -1,18 +1,23 @@
 import React from "react";
 
-function App(props) {
-  const obj = {
-    age: 30,
-    name: "John Doe",
-    email: "johhn@a.com",
-    password: "1234",
-  };
+let son = {
+  firstName: "손",
+  lastName: "흥민",
+  address: "런던",
+  country: "영국",
+  married: false,
+};
 
+function App(props) {
   return (
     <div>
-      {/*  obj의 각 프로퍼티를 jsx 내에서 출력하는 코드 작성*/}
-      나이 : {obj.age} <br /> 이름 : {obj.name} <br />
-      이메일 : {obj.email} <br /> 패스워드 : {obj.password}
+      <ul>
+        <li>성 : {son.firstName}</li>
+        <li>이름 : {son.lastName}</li>
+        <li>주소 : {son.address}</li>
+        <li>국가 : {son.country}</li>
+        <li>결혼여부 : {son.married ? "기혼" : "미혼"}</li>
+      </ul>
     </div>
   );
 }
