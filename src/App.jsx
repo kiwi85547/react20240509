@@ -1,36 +1,25 @@
 import React from "react";
 
-// 배열로 가지고 있는 각 값이 컴포넌트로 맵핑 가능하다
 function App(props) {
-  const a = ["흥민", "강인", "희찬"];
-  const b = a.map(function (item) {
-    return item + "선수";
-  });
+  const s1 = "some string";
+  const s2 = "other string";
+  const s3 = "I'm string";
+  const s4 = '"리액트"공부 중';
 
-  const c = a.map(function (item) {
-    return <li>{item}</li>;
-  });
+  // backtick
+  // template literal
+  const s5 = `another string`;
+
+  const name = "son";
+  const age = 30;
+
+  const s6 = name + " is " + age * 2 + " years.";
+  const s7 = `${name} is ${age * 2} years.`;
+
   return (
     <div>
-      // 다음과 같음
-      <div>{a}</div>
-      <div>
-        {a[0]}
-        {a[1]}
-        {a[2]}
-      </div>
-      <div>{b}</div>
-      <div>{c}</div>
-      <div>
-        {a.map(function (item) {
-          return <li>{item}선수</li>;
-        })}
-      </div>
-      <div>
-        {a.map((item) => (
-          <li>lamda{item}선수</li>
-        ))}
-      </div>
+      <p>{s6}</p>
+      <p>{s7}</p>
     </div>
   );
 }
