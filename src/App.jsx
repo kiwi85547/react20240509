@@ -1,11 +1,14 @@
 function App() {
-  // 한 줄 주석
-  /* 여러 줄 주석 */
-
-  // component 사용시 종료 태그 생략할 수 없음
-  // br 같은 빈 요소는 시작태그에서 꼭 종료
-
-  return <div>hello react</div>;
+  const name = "강인";
+  const position = "미드필더";
+  const salary = 30;
+  return (
+    <div>
+      <p>
+        {position} {name}의 연봉은 {salary}억입니다.
+      </p>
+    </div>
+  );
 }
 
 export default App;
