@@ -1,17 +1,18 @@
 import React from "react";
-function MyComp({color}){
+function MyComp({headColor,bodyColor}){
     return(
-        <div style={{color:color}}>
-            <h1>lorem</h1>
-            <p>Lorem ipsum dolor.</p>
+        <div>
+            <h1 style={{color:headColor}}>lorem</h1>
+            <p style={{color:bodyColor}}>Lorem ipsum dolor.</p>
     </div>)
 }
 
 function App(props) {
   return (
     <div>
-        <MyComp color={"green"}/>
-        <MyComp color={"aqua"}/>
+        <MyComp headColor={"skyblue"} bodyColor={"gold"}/>
+        <MyComp headColor={"#ccc"}/>
+        <MyComp headColor={"aqua"} bodyColor={"red"}/>
     </div>
   );
 }
