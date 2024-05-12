@@ -2,28 +2,37 @@ import React from 'react';
 
 function App(props) {
     // destructuring assignment
-    // (구조) 분해 할당
+    const person = {
+        name: "John",
+        email: "john@example.com",
+        address: "127.0.0.1",
+    };
+    const {name, email} = person;
+    console.log("name", name);
+    console.log("email", email);
+    // console.log("address", address);
 
-    // 자바스크립트의 데이터 타입 string, number, undefined, object({},[])
-    // object({},[])를 분해해서 할당
-    // object(객체)는 두종류가 있음 []는 배열
-    // {}는 프로퍼티 이름과 값, 쌍으로 이루어짐
-    // 프로퍼티의 값을 변수에 할당
+    const car = {
+        model: "genesis",
+        company: "hyundai",
+        price: 500,
+    };
+    const {model, company, color} = car;
+    console.log("model", model);
+    console.log("company", company);
+    console.log("color", color); // undefined
 
-    const a = {name: "son", age: 33};
-    const aName = a.name;
-    const aAge = a.age;
-    // const { name: aName, age: aAge } = a;
+    const house = {
+        city: "seoul",
+        country: "us",
+    };
+    // 없으면 기본값 할당
+    const {city, country = "korea!!", area = 987} = house;
+    console.log("city", city);
+    // country의 기본값, us가 출력됨. korea!! 아님.
+    console.log("country", country); // us
+    console.log("area", area); // 987
 
-    console.log("aName", aName);
-    console.log("aAge", aAge);
-
-    const {name: bName, age: bAge} = a;
-    // const bName = a.name;
-    // const bAge = a.age;
-
-    console.log("bName", bName);
-    console.log("bAge", bAge);
 
     return (<></>
     );
