@@ -1,33 +1,59 @@
-import React from 'react';
-import {Button, ChakraProvider} from "@chakra-ui/react";
+import React from "react";
 
 function App(props) {
-    // 이름 있는 함수
-    function action1(){
-        console.log("action1 함수");
-    }
-    // action1(); // 함수 실행.. 없어도 상관없는데??
+    // function : 함수
 
-    // 이름 없는 함수
-    const action2=function(){
-        console.log("anonymous function. 변수 이름은 action2");
+    // 1. 이름 있는 함수
+    function action1(param1, param2) {
+        // 명령문들...
+
+        return 2;
+    }
+
+    // 2. 이름 없는 함수
+    const v = function (param1, param2) {
+        return 99;
     };
 
-    const arrow = ()=>console.log("arrow");
+    // 3. arrow function (화살표 함수)
+    // 3.1. 파라미터가 여러 개, 명령문이 여러 개
+    const a = (param1, param2, param3) => {
+        // 명령문..
+        // 명령문..
+    };
 
-    return (
-        <div>
-            {/*함수 이름이 action1*/}
-            <button onClick={action1}>onClick property에 이름 있는 함수 넣기</button><br/>
-            {/*익명함수 변수 이름이 action2*/}
-            <button onClick={action2}>onClick property에 이름 없는 함수 넣기</button><br/>
-            <button onClick={function(){
-                console.log("onClick property에 return문 안쪽 익명함수 넣기")
-            }}>클릭3</button><br/>
-            <button onClick={arrow}>onClick property에 arrow function 변수에 담아서 넣기</button><br/>
-            <button onClick={()=>console.log("arrow함수")}>onClick property에 arrow function 바로 넣기</button>
-        </div>
-    );
+    // 3.2. 파라미터가 없고, 명령문이 여러 개
+    const b = () => {
+        // 명령문들....
+    };
+
+    // 3.3. 파라미터가 한 개, 명령문이 여러 개
+    //    파라미터가 한 개일 때 () 안 써도됨...(하지만 prettier 붙여줌)
+    const c = (param1) => {
+        // 명령문들...
+    };
+    const d = (param1) => {
+        // 명령문들..
+    };
+
+    // 3.4. 명령문이 하나일 때
+    const e = () => {
+        console.log("명령문이 하나인 arrow function");
+    };
+
+    const f = () => console.log("중괄호 생략 가능");
+
+    const g = () => "중괄호 생략시 값이 리턴됨";
+    const h = () => {
+        return "중괄호 생략시 값이 리턴됨";
+    };
+
+    // 함수 실행
+    action1(null, null);
+    v(null, null);
+    a(null, null, null);
+
+    return <div></div>;
 }
 
 export default App;
