@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 
-function MyCounter() {
-  const [count, setCount] = useState(0);
-
+function MyNumber() {
+  // todo : code 작성
+  const [number, setNumber] = useState(1000);
   return (
     <div>
-      {count}
-      <button onClick={() => setCount(count + 1)}>증가</button>
+      {/*number의 초기값은 1000*/}
+      <div>{number}</div>
+      <div>
+        <button onClick={() => setNumber(number - 1)}>1씩 감소</button>
+      </div>
+      <div>
+        <button onClick={() => setNumber(number + 1)}>1씩 증가</button>
+      </div>
     </div>
   );
 }
+
 function App(props) {
   return (
     <div>
-      <MyCounter />
+      <MyNumber />
     </div>
   );
 }
