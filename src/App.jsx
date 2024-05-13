@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 
-const foods = ["pizza", "ramen", "coffee", "latte", "burger"];
+const nameList = ["손흥민", "박지성", "이강인", "차범근", "황희찬", "김민재"];
 
 function App(props) {
   const [index, setIndex] = useState(0);
-  const food = foods[index];
-  console.log(index);
+  const i = (nameList.length + index) % nameList.length;
+  const name = nameList[i];
   return (
     <div>
-      {index > 0 && <button onClick={() => setIndex(index - 1)}>이전</button>}
-      {index < food.length - 1 && (
-        <button onClick={() => setIndex(index + 1)}>다음</button>
-      )}
-      <div>{food}</div>
+      <button onClick={() => setIndex(index - 1)}>이전</button>
+      <button onClick={() => setIndex(index + 1)}>다음</button>
+      <div>{name}</div>
     </div>
   );
 }
