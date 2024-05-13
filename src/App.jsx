@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 
 function App(props) {
-  const [text, setText] = useState("");
-  // event를 e로 줄여서 씀
-  function handleUpdateText(e) {
-    console.log(e.target.value);
-    setText(e.target.value);
+  // input에 입력된 값이 p에 출력되도록 코드 작성
+  const [name, setName] = useState();
+  function handlerUpdate(e) {
+    setName(e.target.value);
   }
+
   return (
     <div>
-      {/* EventHandler에 들어가는 함수는 handle...를 따름*/}
-      <input type="text" onChange={handleUpdateText} />
-      <p>{text}</p>
+      <input type="text" onChange={handlerUpdate} />
+      <p>{name}</p>
     </div>
   );
 }
