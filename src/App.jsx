@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 
 function MyComp1() {
-  const [val, setVal] = useState(0);
-  function updateVal() {
-    // react는 re render 시점을 적절한 순간으로 선택함
-    setVal(val + 1);
-    setVal(val + 1);
-    setVal(val + 1);
-    console.log("val", val);
-  }
+  // 여러 상태가 있을 수 있음
+  const [val1, setVal1] = useState(0);
+  const [val2, setVal2] = useState(0);
+  console.log("다시 그려짐");
   return (
     <div>
-      <div>{val}</div>
-      <button onClick={updateVal}>증가</button>
+      <div>{val1}</div>
+      <div>
+        <button onClick={() => setVal1(val1 + 1)}>click1</button>
+      </div>
+      <div>{val2}</div>
+      <div>
+        <button onClick={() => setVal2(val2 + 1)}>click2</button>
+      </div>
     </div>
   );
 }
