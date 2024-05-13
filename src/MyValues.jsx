@@ -1,8 +1,7 @@
-// export : 다른 파일에서 사용가능하도록 내보내기
-export const value1 = "son";
+// named export
+export const v1 = "son";
 
-export const value2 = "lee";
-
-export const value3 = 44;
-
-export const value4 = { name: "kim", team: "뮌헨" };
+// default export
+// 한 파일에서 하나만 가능
+export default "lee";
+// export default "kim"; // xxx
