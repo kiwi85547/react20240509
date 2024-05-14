@@ -1,41 +1,32 @@
-import React, { createContext, useContext, useState } from "react";
-// prop drilling 해결하는 법
-// context 이용
+import React, { useState } from "react";
 
-// context
-// https://react.dev/learn/passing-data-deeply-with-context
-// # context 과용하지 말 것
-// 1. prop 전달 부터 시작할 것
-// 2. 주로 theme, 현재 계정정보, routing 등에 사용됨
-
-// step1 : create the context
-const MessageContext = createContext("");
-
-function MyBox() {
-  // step2 : use the context
-  const message = useContext(MessageContext);
-  return <div>{message}</div>;
+function MyInput({ text, onChange }) {
+  return (
+    <div>
+      <input type="text" onClick={(e) => onChange(e.target.value)} />
+      <p>{text}</p>
+    </div>
+  );
 }
 
-function MySection() {
-  return <MyBox />;
-}
-
-function MyContainer() {
-  return <MySection />;
+function MyText({ text }) {
+  return (
+    <div>
+      <p>{text}</p>
+    </div>
+  );
 }
 
 function App(props) {
-  const [message, setMessage] = useState("");
+  const [text, setText] = useState("");
+
+  function handleUpdateText(t) {
+    setText(t);
+  }
   return (
     <div>
-      <input type="text" onChange={(e) => setMessage(e.target.value)} />
-      <p>{message}</p>
-      <hr />
-      {/*step3 : provide the context*/}
-      <MessageContext.Provider value={message}>
-        <MyContainer />
-      </MessageContext.Provider>
+      <MyInput text={text} onChange={handleUpdateText} />
+      <MyText text={text} />
     </div>
   );
 }
