@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 
-function MyBox({ count, setCount }) {
+function MyButton({ count, onClick }) {
   return (
-    <>
-      <button onClick={() => setCount(count + 1)}>UP</button>
-      <p>{count}</p>
-    </>
+    <div>
+      <button onClick={onClick}>UP {count}</button>
+    </div>
   );
 }
 
+function MyBox({ count }) {
+  return <div>{count}번 클릭됨</div>;
+}
+
 function App(props) {
-  const [display, setDisplay] = useState(true);
   const [count, setCount] = useState(0);
+  function handleUpdateCount() {
+    setCount(count + 1);
+  }
   return (
     <div>
-      <input
-        type="checkbox"
-        checked={display}
-        onChange={(e) => setDisplay(e.target.checked)}
-      />
-      {display && <MyBox count={count} setCount={setCount} />}
+      <MyButton count={count} onClick={handleUpdateCount} />
+      <hr />
+      <MyBox count={count} />
     </div>
   );
 }
