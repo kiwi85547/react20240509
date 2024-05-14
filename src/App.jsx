@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-function MyInput({ text, onChange }) {
+const TextContext = createContext(null);
+
+function MyInput() {
+  const textHandler = useContext(TextContext);
   return (
     <div>
-      <input type="text" onClick={(e) => onChange(e.target.value)} />
-      <p>{text}</p>
+      <input
+        type="text"
+        onChange={(e) => textHandler.updateText(e.target.value)}
+      />
+      <p>{textHandler.text}</p>
     </div>
   );
 }
 
-function MyText({ text }) {
+function MyText() {
+  const textHandler = useContext(TextContext);
   return (
     <div>
-      <p>{text}</p>
+      <p>{textHandler.text}</p>
     </div>
   );
 }
@@ -25,8 +32,11 @@ function App(props) {
   }
   return (
     <div>
-      <MyInput text={text} onChange={handleUpdateText} />
-      <MyText text={text} />
+      {/*value가 객체가 됨. value는 string이 아니어도 됨. 모든지 될 수 있음*/}
+      <TextContext.Provider value={{ text, updateText: handleUpdateText }}>
+        <MyInput />
+        <MyText />
+      </TextContext.Provider>
     </div>
   );
 }
