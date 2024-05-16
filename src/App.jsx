@@ -4,6 +4,8 @@ import axios from "axios";
 function App(props) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
+  const [phone, setPhone] = useState("");
+  const [state, setState] = useState({});
 
   function handleClick1() {
     const obj1 = { name: "kim", age: 20 };
@@ -30,6 +32,10 @@ function App(props) {
     axios.post("/api/main41/sub3", { name, city });
   }
 
+  function handleClick4() {
+    axios.post("/api/main41/sub4", { phone, state });
+  }
+
   return (
     <div>
       <button onClick={handleClick1}>요청(json 데이터 포함)</button>
@@ -40,6 +46,13 @@ function App(props) {
         <input type="text" onChange={(e) => setCity(e.target.value)} />
         <br />
         <button onClick={handleClick3}>JSON 형식으로 요청</button>
+      </div>
+      <div>
+        <input type="number" onChange={(e) => setPhone(e.target.value)} />
+        <br />
+        <input type="text" onChange={(e) => setState(e.target.value)} />
+        <br />
+        <button onClick={handleClick4}>spring으로 보내기</button>
       </div>
     </div>
   );
