@@ -25,11 +25,43 @@ function App(props) {
 
   function handle500() {}
 
+  function handleClick() {
+    const r = Math.random();
+    let path = "";
+    if (r < 1 / 3) {
+      path = "/api/main43/sub1";
+    } else if (r < 2 / 3 && r > 1 / 3) {
+      path = "/api/main43/sub3";
+    } else {
+      path = "/api/main43/sub4";
+    }
+
+    axios
+      .get(path)
+      .then(() => console.log("정상적인 접근입니다"))
+      .catch((error) => {
+        const code = error.response.status;
+        switch (code) {
+          case 401:
+            console.log("401 응답입니다. 로그인되지 않았습니다.");
+            break;
+          case 403:
+            console.log("403 응답입니다. 권한이 없습니다.");
+            break;
+        }
+      })
+      .finally(() => {
+        console.log("항상 실행되는 메소드");
+      });
+  }
+
   return (
     <div>
       <button onClick={handle200}>200응답</button>
       <button onClick={handle400}>400응답</button>
       <button onClick={handle500}>500응답</button>
+      {/*  200,401,403번 응답일 때 각각 다른 일하는 코드 작성*/}
+      <button onClick={handleClick}>응답 코드에 따라 다른 일 하기</button>
     </div>
   );
 }
