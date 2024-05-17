@@ -5,10 +5,16 @@ import { BoardEdit } from "./BoardEdit.jsx";
 import { BoardList } from "./BoardList.jsx";
 
 // router 객체
+// children 의 path에는 / 붙이면 안됨. 붙일거면 상위 /board까지 모두 붙여야 함
 const router = createBrowserRouter([
-  { path: "/board/add", element: <BoardAdd /> },
-  { path: "/board/edit", element: <BoardEdit /> },
-  { path: "/board/list", element: <BoardList /> },
+  { path: "/add", element: <BoardAdd /> },
+  {
+    path: "/board",
+    children: [
+      { path: "edit", element: <BoardEdit /> },
+      { path: "list", element: <BoardList /> },
+    ],
+  },
 ]);
 
 function App(props) {
