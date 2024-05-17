@@ -6,48 +6,39 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-function SpringRoot() {
+function Root() {
   return (
     <div>
-      <div
-        style={{
-          padding: "10px",
-          backgroundColor: "#eee",
-          display: "flex",
-          gap: "5px",
-        }}
-      >
-        <div>
-          <Link to={"/spring"}>SPRING</Link>
-        </div>
-        <div>
-          {/* a 태그 대신 Link 컴포넌트 사용하기 */}
-          <Link to="/spring/learn">LEARN</Link>
-        </div>
-        <div>
-          <Link to="/spring/api">API</Link>
-        </div>
-        <div>
-          <Link to="/spring/doc">DOC</Link>
-        </div>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/list">List</Link>
       </div>
-
-      <div style={{ marginTop: "20px" }}>
+      <hr />
+      <div>
         <Outlet />
       </div>
     </div>
   );
 }
 
+function BoardList() {
+  return (
+    <div>
+      <div>1번 게시물 보기</div>
+      <div>2번 게시물 보기</div>
+      <div>3번 게시물 보기</div>
+    </div>
+  );
+}
+
 const router = createBrowserRouter([
   {
-    path: "spring",
-    element: <SpringRoot />,
+    path: "/",
+    element: <Root />,
     children: [
-      { index: true, element: <div>SPRING!!!</div> },
-      { path: "api", element: <div>api page</div> },
-      { path: "doc", element: <div>doc page</div> },
-      { path: "learn", element: <div>learn page</div> },
+      { index: true, element: <div>Main Page</div> },
+      { path: "board", element: <div>Board page</div> },
+      { path: "list", element: <BoardList /> },
     ],
   },
 ]);
