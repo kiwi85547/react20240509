@@ -6,9 +6,9 @@ import { BoardList } from "./BoardList.jsx";
 
 // router 객체
 const router = createBrowserRouter([
-  { path: "/add", element: <BoardAdd /> },
-  { path: "/edit", element: <BoardEdit /> },
-  { path: "/list", element: <BoardList /> },
+  { path: "/board/add", element: <BoardAdd /> },
+  { path: "/board/edit", element: <BoardEdit /> },
+  { path: "/board/list", element: <BoardList /> },
 ]);
 
 function App(props) {
