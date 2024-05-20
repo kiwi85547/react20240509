@@ -1,23 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {ChakraProvider, useDisclosure, useToast} from "@chakra-ui/react";
+import React, {useState} from 'react';
 
 function App(props) {
-    // use... : Hook
-    // if / for 내에서 사용하지 말 것
-
-    // 안전하게 hook은 컴포넌트 가장 상단에 순서대로 작성할 것
-
-    const [count, setCount] = useState(0)
-    useEffect(() => {
-    }, []);
-    const toast = useToast();
-    const {isOpen, onClose, onOpen} = useDisclosure();
-    const [message, setMessage] = useState("")
+    const [text1, setText1] = useState("");
+    const [text2, setText2] = useState("hello");
+    const [text3, setText3] = useState("hi");
+    const [text4, setText4] = useState("hi");
+    const [text5, setText5] = useState("hi");
 
     return (
-        <ChakraProvider>
-            <div></div>
-        </ChakraProvider>
+        <div>
+            <div><input type="text" onChange={e => setText1(e.target.value)}/></div>
+            <div><input type="text" value={text2} readOnly={true}/></div>
+            <div><input type="text" defaultValue={text3}/></div>
+            <div><input type="text" value={text5}/></div>
+        </div>
     );
 }
 
