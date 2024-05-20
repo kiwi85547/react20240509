@@ -1,50 +1,18 @@
-import React from "react";
-import {
-  createBrowserRouter,
-  Link,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
-
-function Root() {
-  return (
-    <div>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/list">List</Link>
-      </div>
-      <hr />
-      <div>
-        <Outlet />
-      </div>
-    </div>
-  );
-}
-
-function BoardList() {
-  return (
-    <div>
-      <div>1번 게시물 보기</div>
-      <div>2번 게시물 보기</div>
-      <div>3번 게시물 보기</div>
-    </div>
-  );
-}
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      { index: true, element: <div>Main Page</div> },
-      { path: "board", element: <div>Board page</div> },
-      { path: "list", element: <BoardList /> },
-    ],
-  },
-]);
+import React from 'react';
 
 function App(props) {
-  return <RouterProvider router={router} />;
+    const names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    // 배열을 map 메소드 사용해서 컴포넌트들을 만들 때
+    // key prop을 사용해서 효율성을 높일 것
+    // key prop에 값은 주로 primary key가 사용됨
+    return (
+        <div>
+            <ul>
+                {names.map((name, index) => (
+                    <li key={index}>{name}</li>))}
+            </ul>
+        </div>
+    );
 }
 
 export default App;
