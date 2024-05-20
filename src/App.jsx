@@ -5,6 +5,8 @@ function App(props) {
     // use... : Hook
     // if / for 내에서 사용하지 말 것
 
+    // 안전하게 hook은 컴포넌트 가장 상단에 순서대로 작성할 것
+
     const [count, setCount] = useState(0)
     useEffect(() => {
     }, []);
